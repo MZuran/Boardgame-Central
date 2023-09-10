@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+ul li {
+  margin-bottom: 0 !important;
+}
+
+li {
+  color: white;
+  margin-right: 2vw;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar {
+  width: 30vw;
+  height: 7vh;
+  background-color: #333333;
+}
+.navbar ul {
+  margin-bottom: 0 !important;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+.navbar ul li {
+  cursor: pointer;
+  margin: 0;
+}
+
+.logo {
+  margin: 1vh;
+  height: 3rem;
+  width: 3rem;
+  background-image: url("../../media/logo.png");
+  background-size: cover;
+  cursor: pointer;
+}
+
+.text-dropdown {
+  --bs-btn-padding-x: 0;
+  --bs-btn-padding-y: 0;
+}
+.text-dropdown .dropdown-toggle {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,12 @@
+.text-dropdown {
+  --bs-btn-padding-x: 0;
+  --bs-btn-padding-y: 0;
+}
+.text-dropdown .dropdown-toggle {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+/*# sourceMappingURL=dropdowns.css.map */
