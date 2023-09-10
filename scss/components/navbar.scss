@@ -1,5 +1,7 @@
+$navbar-picture-size: 3rem;
+
 .navbar {
-  width: 30vw;
+  width: 35rem;
   height: 7vh;
   background-color: $dark-gray;
 
@@ -10,6 +12,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
+    
     & li {
       cursor: pointer;
       margin: 0;
@@ -19,8 +22,8 @@
 
 .logo {
   margin: 1vh;
-  height: 3rem;
-  width: 3rem;
+  height: $navbar-picture-size;
+  width: $navbar-picture-size;
   background-image: url('../../media/logo.png');
   background-size: cover;
   cursor: pointer;

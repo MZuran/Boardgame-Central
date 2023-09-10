@@ -3,6 +3,7 @@ import React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Navbar from 'react-bootstrap/Navbar'
 import DropDown from './DropDown'
+import CartWidget from './CartWidget'
 
 export default function NavBar() {
 
@@ -18,7 +19,9 @@ export default function NavBar() {
           <li>
             <DropDown classList={'text-dropdown'} dropDownItems={popularProductList}>Popular Products</DropDown>
           </li>
-          <li>FAQ</li>
+          <li>
+            <CartWidget></CartWidget>
+          </li>
         </ul>
       </Navbar>
     </div>

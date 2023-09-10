@@ -23,7 +23,7 @@ li {
 }
 
 .navbar {
-  width: 30vw;
+  width: 35rem;
   height: 7vh;
   background-color: #333333;
 }
@@ -58,6 +58,28 @@ li {
   padding: 0;
   margin: 0;
   background: none;
+}
+
+.cart-widget {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.cart-widget img {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../media/shopping-cart.png");
+  background-size: cover;
+  filter: invert(100%) sepia(4%) saturate(14%) hue-rotate(25deg) brightness(104%) contrast(100%);
+}
+.cart-widget .items-counter {
+  transform: translateX(-0.7rem);
+  position: absolute;
+}
+.cart-widget .items-counter * {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=app.css.map */
