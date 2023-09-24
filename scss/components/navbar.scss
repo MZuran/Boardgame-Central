@@ -1,13 +1,13 @@
 $navbar-picture-size: 3rem;
 
 .navbar {
-  width: 35rem;
+  width: 100%;
   height: 7vh;
   background-color: $dark-gray;
 
   & ul {
     margin-bottom: 0 !important;
-    width: 100%;
+    width: 30rem;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
