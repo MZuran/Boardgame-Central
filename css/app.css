@@ -82,6 +82,40 @@ li {
   margin-bottom: 0;
 }
 
+.card-detail {
+  margin: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #999999;
+  display: flex;
+  flex-direction: row;
+  background-color: #EEEEEE;
+}
+.card-detail div {
+  margin: 1rem;
+}
+.card-detail div img {
+  height: 23rem;
+}
+
+.card-item {
+  width: 15rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #EEEEEE;
+}
+.card-item div {
+  margin-top: 0.5rem;
+}
+.card-item div img {
+  height: 15rem;
+}
+
 .margin-5vw {
   margin: 5vw;
 }

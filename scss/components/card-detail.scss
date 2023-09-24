@@ -1,0 +1,19 @@
+.card-detail {
+    margin: 1rem;
+
+    border-radius: 1rem;
+    border: 1px solid $light-gray;
+
+    display: flex;
+    flex-direction: row;
+
+    background-color: $very-light-gray;
+
+    & div{
+        margin: 1rem;
+        & img{
+            height: 23rem;
+        }
+    }
+
+}
