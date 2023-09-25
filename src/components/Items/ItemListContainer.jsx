@@ -10,7 +10,11 @@ const CardItemContainer = ({ itemsArray, position }) => {
       for (let index = 0; index < 20; index++) {
         items.push(
           itemsArray !== null && (
-            <CardItem cardInfo={itemsArray.data[position + index]} key={itemsArray.data[position + index].id}></CardItem>
+            
+            <CardItem
+              cardInfo={itemsArray.data[position + index]}
+              key={itemsArray.data[position + index].id}
+            ></CardItem>
           ),
         )
       }

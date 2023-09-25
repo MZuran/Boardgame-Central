@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Row } from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
-import CardItem from './Items/CardItem'
-import CardDetail from './Details/CardDetail'
 import CardItemContainer from './Items/ItemListContainer'
+import CardDetailContainer from './Details/CardDetailContainer'
 
 import useFetch from '../Hooks/useFetch'
 
@@ -22,8 +21,6 @@ function ItemListContainer({ greeting }) {
     <>
       <Container className='flex-column'>
         <Row>
-          {items !== null && <CardDetail cardInfo={items.data[position]}></CardDetail>}
-
           <CardItemContainer position={position} itemsArray={items}></CardItemContainer>
         </Row>
         <div className='navigation-buttons-container'>
