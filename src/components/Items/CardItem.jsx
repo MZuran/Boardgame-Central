@@ -1,6 +1,7 @@
 import React from 'react'
 import getCardImage from '../../Hooks/getCardImage'
 import { NavLink } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const CardItem = (cardData) => {
   const imgSrc = getCardImage(cardData.cardInfo.name)
@@ -15,9 +16,9 @@ const CardItem = (cardData) => {
   return (
     <div className="card-item">
       <div>
-        <NavLink to={`/card/${cardData.cardInfo.name}`}>
+        <Link to={`/card/${cardData.cardInfo.name}`}>
           <img src={imgSrc} alt={cardData.cardInfo.name} />
-        </NavLink>
+        </Link>
       </div>
       <div>
         <p>
