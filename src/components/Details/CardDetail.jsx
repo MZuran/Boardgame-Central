@@ -1,24 +1,28 @@
 import React from 'react'
+import { useState } from 'react'
 import getCardImage from '../../Hooks/getCardImage'
 
 const CardDetail = (cardData) => {
-  //console.log(cardData.cardInfo.card_prices[0].tcgplayer_price)
-  //console.log(getCardImage(cardData.cardInfo.id))
-  //console.log(cardData.cardInfo)
+  const [imageLoaded, setImageLoaded] = useState(false)
+
   const imgSrc = getCardImage(cardData.cardInfo.name)
 
-  let isMonster = true
-  if (
-    cardData.cardInfo.type == 'Spell Card' ||
-    cardData.cardInfo.type == 'Trap Card'
-  ) {
-    isMonster = false
+  let price
+
+  if (cardData.cardInfo.card_prices[0].tcgplayer_price == 0) {
+    price = 'not available'
+  } else {
+    price = cardData.cardInfo.card_prices[0].tcgplayer_price + '$'
   }
 
   return (
     <div className="card-detail">
       <div>
-        <img src={imgSrc} alt={cardData.cardInfo.name} />
+        <img
+          className="image-container"
+          src={imgSrc}
+          alt={cardData.cardInfo.name}
+        />
       </div>
 
       <div>
@@ -39,8 +43,8 @@ const CardDetail = (cardData) => {
         {cardData.cardInfo.scale && <p>Scale: {cardData.cardInfo.scale}</p>}
         <p>{cardData.cardInfo.desc}</p>
         <p>
-          Price: {cardData.cardInfo.card_prices[0].tcgplayer_price}${' '}
-          <i>tcgplayer.com</i>
+          Price: {price}{' '}
+          <i>(tcgplayer.com)</i>
         </p>
       </div>
     </div>

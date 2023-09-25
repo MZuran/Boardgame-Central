@@ -1,0 +1,9 @@
+.navigation-buttons-container {
+  display: flex;
+  flex-direction: row;
+}
+.navigation-buttons-container button {
+  margin: 1rem;
+}
+
+/*# sourceMappingURL=navigation-buttons.css.map */
