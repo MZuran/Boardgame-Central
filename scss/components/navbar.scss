@@ -4,6 +4,7 @@ $navbar-picture-size: 3rem;
   width: 100%;
   height: 7vh;
   background-color: $dark-gray;
+  position: sticky !important;
 
   & ul {
     width: 100%;
@@ -15,17 +16,16 @@ $navbar-picture-size: 3rem;
     justify-content: space-around;
     
     & li {
-      cursor: pointer;
       margin: 0;
     }
   }
 }
 
 .logo {
+  display: block;
   margin: 1vh;
   height: $navbar-picture-size;
   width: $navbar-picture-size;
   background-image: url('../../media/logo.png');
   background-size: cover;
-  cursor: pointer;
 }

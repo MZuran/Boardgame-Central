@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import useFetch from '../../Hooks/useFetch'
 import CardDetail from './CardDetail'
 import { useParams } from 'react-router-dom'
 
 const CardDetailContainer = () => {
   const { cardName } = useParams()
-  const data = useFetch(
-    `https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardName}`,
+
+  let data = useFetch(
+    `https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${cardName}`,
+    [cardName],
   )
 
   let cardData = null
@@ -14,10 +16,10 @@ const CardDetailContainer = () => {
     cardData = data[0].data[0]
   }
 
-  return (
-    <>
-      {cardData !== null && <CardDetail cardData={cardData}/>}
-    </>
-  )
+  useEffect(() => {
+    console.log(cardName)
+  }, [cardName])
+
+  return <>{cardData !== null && <CardDetail cardData={cardData} />}</>
 }
 export default CardDetailContainer

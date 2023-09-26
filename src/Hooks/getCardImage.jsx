@@ -16,6 +16,7 @@ const getCardImage = (cardName) => {
   } else {
     return "../../media/Back.png"
   }
+
 }
 
 export default getCardImage

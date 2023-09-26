@@ -40,7 +40,7 @@ const useFetchForScraping = (url) => {
   }
   useEffect(() => {
     getData()
-  }, [])
+  }, [url])
   return [data]
 }
 

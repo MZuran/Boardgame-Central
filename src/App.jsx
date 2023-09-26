@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar></NavBar>
+        <NavBar/>
         <Routes>
           {/* <Route exact path='/' element={}/> */}
           <Route exact path='/' element={<ItemListContainer/>}/>

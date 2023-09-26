@@ -8,15 +8,16 @@ const CardItemContainer = ({ itemsArray, position }) => {
   useEffect(() => {
     if (itemsArray !== null) {
       for (let index = 0; index < 20; index++) {
+        if (itemsArray.data[position + index]) {
         items.push(
           itemsArray !== null && (
-            
             <CardItem
               cardInfo={itemsArray.data[position + index]}
               key={itemsArray.data[position + index].id}
             ></CardItem>
           ),
         )
+      }
       }
       setData(items)
     }

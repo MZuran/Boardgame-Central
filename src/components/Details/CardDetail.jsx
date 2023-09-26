@@ -1,8 +1,13 @@
 import getCardImage from '../../Hooks/getCardImage'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+
 
 const CardDetail = (data) => {
+  /* useEffect(() => {
+    console.log(data.cardData.name)
+  }, [data]) */
   const cardData = data.cardData
   let price = cardData.card_prices[0].tcgplayer_price
   const cardName = cardData.name
@@ -25,8 +30,8 @@ const CardDetail = (data) => {
           <p>{cardData.name}</p>
 
           <p>
-            {cardData.atk && `ATK/${cardData.atk} `}
-            {cardData.def && `DEF/${cardData.def} `}
+            {cardData.atk !== null && `ATK/${cardData.atk} `}
+            {cardData.def !== null && `DEF/${cardData.def} `}
           </p>
 
           <p>
@@ -38,12 +43,15 @@ const CardDetail = (data) => {
 
           {cardData.scale && <p>Scale: {cardData.scale}</p>}
           <p>{cardData.desc}</p>
+          {cardData.archetype && <p>
+            Archetype: {cardData.archetype} <span className="info-text"><i>may not be completely accurate!</i></span>
+          </p>}
           <p>
-            Price: {price} <i>(tcgplayer.com)</i>
+            Price: {price} <i><span className="info-text">(tcgplayer.com)</span></i>
           </p>
         </div>
         <div className='navigation-buttons-container'>
-        <Button>Related Cards</Button>
+        {cardData.archetype && <Link to={`/type/archetype=${cardData.archetype}/0`}><Button>Related Cards</Button></Link>}
         <Link to={`/`}><Button>Go Back</Button></Link>
         </div>
       </div>

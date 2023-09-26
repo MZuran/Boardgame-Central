@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Row } from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
-import CardItemContainer from './Items/ItemListContainer'
+import CardItemContainer from './Items/CardItemContainer'
 import { useParams } from 'react-router-dom'
 import useFetch from '../Hooks/useFetch'
 
 function ItemListContainer() {
   const { cardType } = useParams()
-  //<CardItemContainer position={position} itemsArray={items}></CardItemContainer>
-  const [data, setData] = useState(null)
   const [position, setPosition] = useState(0)
 
   let fetchAddress
@@ -27,15 +25,17 @@ function ItemListContainer() {
       fetchAddress = 'https://db.ygoprodeck.com/api/v7/cardinfo.php'
     }
 
-    setData(<CardItemContainer position={position} itemsArray={items} />)
+    setPosition(0)
   }, [cardType, items])
 
   return (
     <>
       <Container className="flex-column">
         <Row>
-          {/* <CardItemContainer position={position} itemsArray={items}></CardItemContainer> */}
-          {data}
+          <CardItemContainer
+            position={position}
+            itemsArray={items}
+          ></CardItemContainer>
         </Row>
         <div className="navigation-buttons-container">
           <Button
@@ -47,7 +47,18 @@ function ItemListContainer() {
           >
             Prev
           </Button>
-          <Button onClick={() => setPosition(position + 20)}>Next</Button>
+          <Button
+            onClick={() => {
+              console.log(items.data.length)
+              console.log(position + 20)
+              console.log(items.data.length < position + 20)
+              if (items.data.length > position + 20) {
+                setPosition(position + 20)
+              }
+            }}
+          >
+            Next
+          </Button>
         </div>
       </Container>
     </>
