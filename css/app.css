@@ -34,8 +34,9 @@ li {
   background-color: #333333;
 }
 .navbar ul {
+  width: 100%;
   margin-bottom: 0 !important;
-  width: 30rem;
+  margin-right: 0.5rem !important;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -105,6 +106,7 @@ li {
 
 .card-item {
   width: 15rem;
+  height: 20rem;
   margin: 0.5rem;
   border-radius: 1rem;
   border: 1px solid #999999;
@@ -134,7 +136,8 @@ li {
   flex-direction: row;
 }
 .navigation-buttons-container button {
-  margin: 1rem;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
 }
 
 .margin-5vw {

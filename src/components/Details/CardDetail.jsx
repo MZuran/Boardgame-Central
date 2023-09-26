@@ -1,4 +1,6 @@
 import getCardImage from '../../Hooks/getCardImage'
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const CardDetail = (data) => {
   const cardData = data.cardData
@@ -7,9 +9,9 @@ const CardDetail = (data) => {
   const imgSrc = getCardImage(cardName)
 
   if (price == 0) {
-    price = "not available"
+    price = 'not available'
   } else {
-    price = price + "$"
+    price = price + '$'
   }
 
   return (
@@ -19,25 +21,31 @@ const CardDetail = (data) => {
       </div>
 
       <div>
-        <p>{cardData.name}</p>
+        <div>
+          <p>{cardData.name}</p>
 
-        <p>
-          {cardData.atk && `ATK/${cardData.atk} `}
-          {cardData.def && `DEF/${cardData.def} `}
-        </p>
+          <p>
+            {cardData.atk && `ATK/${cardData.atk} `}
+            {cardData.def && `DEF/${cardData.def} `}
+          </p>
 
-        <p>
-          {cardData.level && `Level/Rank ${cardData.level} `}
-          {cardData.linkval && `Link-${cardData.linkval} `}
-          {cardData.attribute && `${cardData.attribute} `}
-          {cardData.race} {cardData.type}
-        </p>
+          <p>
+            {cardData.level && `Level/Rank ${cardData.level} `}
+            {cardData.linkval && `Link-${cardData.linkval} `}
+            {cardData.attribute && `${cardData.attribute} `}
+            {cardData.race} {cardData.type}
+          </p>
 
-        {cardData.scale && <p>Scale: {cardData.scale}</p>}
-        <p>{cardData.desc}</p>
-        <p>
-          Price: {price} <i>(tcgplayer.com)</i>
-        </p>
+          {cardData.scale && <p>Scale: {cardData.scale}</p>}
+          <p>{cardData.desc}</p>
+          <p>
+            Price: {price} <i>(tcgplayer.com)</i>
+          </p>
+        </div>
+        <div className='navigation-buttons-container'>
+        <Button>Related Cards</Button>
+        <Link to={`/`}><Button>Go Back</Button></Link>
+        </div>
       </div>
     </div>
   )

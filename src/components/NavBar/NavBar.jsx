@@ -1,9 +1,10 @@
 import React from 'react'
 //import 'bootstrap/dist/css/bootstrap.css'
-import Dropdown from 'react-bootstrap/Dropdown'
 import Navbar from 'react-bootstrap/Navbar'
 import DropDown from './DropDown'
 import CartWidget from './CartWidget'
+import { NavLink } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default function NavBar() {
 
@@ -14,8 +15,9 @@ export default function NavBar() {
       <Navbar className="navbar flex-row">
         <Navbar.Brand className="logo"></Navbar.Brand>
         <ul className="flex-row">
-          <li>Home</li>
-          <li>About us</li>
+          <Link to={`/type/type=Effect Monster`}><li>Monster Cards</li></Link>
+          <Link to={`/type/type=Spell Card`}><li>Spell Cards</li></Link>
+          <li>Trap Cards</li>
           <li>
             <DropDown classList={'text-dropdown'} dropDownItems={popularProductList}>Popular Products</DropDown>
           </li>

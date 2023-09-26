@@ -16,7 +16,6 @@ const CardDetailContainer = () => {
 
   return (
     <>
-      <h1>{cardName}</h1>
       {cardData !== null && <CardDetail cardData={cardData}/>}
     </>
   )
