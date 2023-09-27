@@ -30,8 +30,8 @@ const CardDetail = (data) => {
           <p>{cardData.name}</p>
 
           <p>
-            {cardData.atk !== null && `ATK/${cardData.atk} `}
-            {cardData.def !== null && `DEF/${cardData.def} `}
+            {cardData.atk !== undefined  && `ATK/${cardData.atk} `}
+            {cardData.def !== undefined && `DEF/${cardData.def} `}
           </p>
 
           <p>
@@ -51,7 +51,7 @@ const CardDetail = (data) => {
           </p>
         </div>
         <div className='navigation-buttons-container'>
-        {cardData.archetype && <Link to={`/type/archetype=${cardData.archetype}/0`}><Button>Related Cards</Button></Link>}
+        {cardData.archetype && <Link to={`/type/archetype=${cardData.archetype}`}><Button>Related Cards</Button></Link>}
         <Link to={`/`}><Button>Go Back</Button></Link>
         </div>
       </div>
