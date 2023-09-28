@@ -7,17 +7,21 @@ const CardDetailContainer = () => {
   const { cardName } = useParams()
 
   let data = useFetch(
-    `https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${cardName}`,
+    `https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${encodeURIComponent(cardName)}`,
     [cardName],
   )
 
   let cardData = null
   if (data[0] !== null) {
+    console.log(data[0].data[0])
     cardData = data[0].data[0]
   }
 
   useEffect(() => {
-    console.log(cardName)
+    console.log(
+      `https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${encodeURIComponent(cardName)}`,
+      [cardName],
+    )
   }, [cardName])
 
   return <>{cardData !== null && <CardDetail cardData={cardData} />}</>
