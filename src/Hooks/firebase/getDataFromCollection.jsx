@@ -1,10 +1,16 @@
 import React from 'react'
-import { getFirestore, collection, getDocs, query, where, } from 'firebase/firestore'
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from 'firebase/firestore'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
 function getDataFromCollection(collectionName, queryParameter, queryType) {
-    const [items, setItems] = useState(null)
+  const [items, setItems] = useState(null)
   useEffect(() => {
     const db = getFirestore()
     const completeCardCollection = collection(db, collectionName)

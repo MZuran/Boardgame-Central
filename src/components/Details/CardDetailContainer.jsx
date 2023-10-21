@@ -6,7 +6,6 @@ import getItemFromCollection from '../../Hooks/firebase/getItemFromCollection'
 const CardDetailContainer = () => {
   const [data, setdata] = useState(null)
   const { cardId } = useParams()
-
   const collectionData = getItemFromCollection("cards", cardId)
 
   useEffect(() => {
