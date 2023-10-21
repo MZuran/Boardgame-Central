@@ -2,7 +2,7 @@ import React from 'react'
 import { usePurchaseCostVariable } from '../../context/costContext'
 import { useCartVariable } from '../../context/cartContext'
 import { Button } from 'react-bootstrap'
-import insertDataInCollection from '../../Hooks/insertDataInCollection'
+import insertDataInCollection from '../../Hooks/firebase/insertDataInCollection'
 
 
 function ConfirmPurchaseButton() {

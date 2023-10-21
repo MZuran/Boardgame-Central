@@ -3,32 +3,18 @@ import { Button, Row } from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
 import CardItemContainer from '../components/Items/CardItemContainer'
 import { useParams } from 'react-router-dom'
-import { getFirestore, collection, getDocs, query, where, } from 'firebase/firestore'
+import getDataFromCollection from '../Hooks/firebase/getDataFromCollection'
 
 function ItemListContainer() {
   const { queryType, queryParameter } = useParams()
   const [position, setPosition] = useState(0)
   const [items, setItems] = useState(null)
 
-  useEffect(() => {
-    const db = getFirestore()
-    const completeCardCollection = collection(db, 'cards')
-    let q 
-    
-    if (queryParameter && queryType) {
-      q = query(completeCardCollection, where(queryType, '==', queryParameter))
-    } else {
-      q = completeCardCollection
-    }
+  const collectionData = getDataFromCollection("cards", queryParameter, queryType)
 
-    getDocs(q).then((snapshot) => {
-      const allData = snapshot.docs.map((card) => ({
-        id: card.id,
-        ...card.data(),
-      }))
-      setItems(allData)
-    })
-  }, [queryType, queryParameter])
+  useEffect(() => {
+    setItems(collectionData)
+  }, [queryType, queryParameter, collectionData])
 
   useEffect(() => {
     setPosition(0)

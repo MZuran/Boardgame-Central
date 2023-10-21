@@ -3,7 +3,7 @@ import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './pages/CardsContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CardDetailContainer from './components/Details/CardDetailContainer'
-import FirebaseInitializer from './Hooks/firebaseInitializer'
+import FirebaseInitializer from './Hooks/firebase/firebaseInitializer'
 import Cart from './pages/cart'
 import Login from './pages/login'
 

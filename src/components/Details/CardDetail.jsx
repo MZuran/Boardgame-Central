@@ -1,8 +1,6 @@
-import { getCardImage } from '../../Hooks/getCardImage'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-import { standarizeSingleCard } from '../../Hooks/standarizeCards'
 import { useCartVariable } from '../../context/cartContext'
 import AddToCartButton from './addToCartButton'
 import CardDetailText from './CardDetailText'
