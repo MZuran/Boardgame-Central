@@ -20,6 +20,18 @@ function ItemListContainer() {
     setPosition(0)
   }, [queryType, queryParameter])
 
+  function positionForwards() {
+    if (items.data.length > position + 20) {
+      setPosition(position + 20)
+    }
+  }
+
+  function positionBackwards() {
+    if (position >= 20) {
+      setPosition(position - 20)
+    }
+  }
+
   const imageUrls = [
     'https://i.postimg.cc/W1zgFn0d/10493654.jpg',
     'https://i.postimg.cc/yYtYjXwg/11738489.jpg',
@@ -54,28 +66,11 @@ function ItemListContainer() {
       {items && (
         <Container className="flex-column">
           <Row>
-            <CardItemContainer
-              position={position}
-              itemsArray={items}
-            ></CardItemContainer>
+            <CardItemContainer position={position} itemsArray={items} />
           </Row>
           <div className="navigation-buttons-container">
-            <Button
-              onClick={() => {
-                if (position >= 20) {
-                  setPosition(position - 20)
-                }
-              }}
-            >
-              Prev
-            </Button>
-            <Button
-              onClick={() => {
-                if (items.data.length > position + 20) {
-                  setPosition(position + 20)
-                }
-              }}
-            > Next </Button>
+            <Button onClick={() => { positionBackwards() }} > Prev </Button>
+            <Button onClick={() => { positionForwards() }} > Next </Button>
           </div>
         </Container>
       )}

@@ -21,7 +21,7 @@ function getDataFromCollection(collectionName, queryParameter, queryType) {
         id: card.id,
         ...card.data(),
       }))
-      console.log('allData', allData)
+      //console.log('allData', allData)
       setItems(allData)
     })
   }, [collectionName, queryParameter, queryType])
