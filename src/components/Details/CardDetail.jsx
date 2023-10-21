@@ -1,59 +1,27 @@
-import getCardImage from '../../Hooks/getCardImage'
+import { getCardImage } from '../../Hooks/getCardImage'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-
+import { standarizeSingleCard } from '../../Hooks/standarizeCards'
+import { useCartVariable } from '../../context/cartContext'
+import AddToCartButton from './addToCartButton'
+import CardDetailText from './CardDetailText'
 
 const CardDetail = (data) => {
-  /* useEffect(() => {
-    console.log(data.cardData.name)
-  }, [data]) */
   const cardData = data.cardData
-  let price = cardData.card_prices[0].tcgplayer_price
-  const cardName = cardData.name
-  const imgSrc = getCardImage(cardName)
-
-  if (price == 0) {
-    price = 'not available'
-  } else {
-    price = price + '$'
-  }
+  const { addToCart, cart, clearCart } = useCartVariable()
 
   return (
     <div className="card-detail">
-      <div>
-        <img className="image-container" src={imgSrc} alt={cardData.name} />
-      </div>
+      <div> <img className="image-container" src={cardData.pictureSource} alt={cardData.name} /> </div>
 
       <div>
-        <div>
-          <p>{cardData.name}</p>
-
-          <p>
-            {cardData.atk !== undefined  && `ATK/${cardData.atk} `}
-            {cardData.def !== undefined && `DEF/${cardData.def} `}
-          </p>
-
-          <p>
-            {cardData.level && `Level/Rank ${cardData.level} `}
-            {cardData.linkval && `Link-${cardData.linkval} `}
-            {cardData.attribute && `${cardData.attribute} `}
-            {cardData.race} {cardData.type}
-          </p>
-
-          {cardData.scale && <p>Scale: {cardData.scale}</p>}
-          <p>{cardData.desc}</p>
-          {cardData.archetype && <p>
-            Archetype: {cardData.archetype} <span className="info-text"><i>may not be completely accurate!</i></span>
-          </p>}
-          <p>
-            Price: {price} <i><span className="info-text">(tcgplayer.com)</span></i>
-          </p>
+        <CardDetailText cardData={cardData}/>
+        <div className="navigation-buttons-container">
+          <AddToCartButton cardPrice={cardData.price} cardId={data.cardId} maxStock={cardData.stock}>Add To Cart</AddToCartButton>
         </div>
-        <div className='navigation-buttons-container'>
-        {cardData.archetype && <Link to={`/type/archetype=${cardData.archetype}`}><Button>Related Cards</Button></Link>}
-        <Link to={`/`}><Button>Go Back</Button></Link>
-        </div>
+        <button onClick={() => { clearCart() }} >clearCart</button>
+        <button onClick={() => { console.log(cart) }} >Cart</button>
       </div>
     </div>
   )

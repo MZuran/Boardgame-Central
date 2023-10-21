@@ -8,13 +8,11 @@ import { Link } from 'react-router-dom'
 
 export default function NavBar() {
   let popularProductList = [
-    <Link to={`/type/staple=yes`}>Staple Cards</Link>,
-    <Link to={`/type/archetype=Blue-Eyes`}>Blue-Eyes Archetype</Link>,
-    <Link to={`/card/Exodia_the_Forbidden_One`}>Exodia the Forbidden One</Link>
+    <Link to={`/search/type/Link%20Monster`}>Link Monsters</Link>,
+    <Link to={`/search/archetype/Blue-Eyes`}>Blue-Eyes Archetype</Link>,
+    <Link to={`/card/Szp4egdXrYhrVvF9k7Zh`}>Exodia the Forbidden One</Link>
   ]
 
-  /* let popularProductList = [1,2] */
-  //cardinfo.php?format=Rush%20Duel
   return (
     <div>
       <Navbar className="navbar flex-row">
@@ -22,13 +20,13 @@ export default function NavBar() {
           <Navbar.Brand className="logo" />
         </Link>
         <ul className="flex-row">
-          <Link to={`/type/type=Effect Monster`}>
+          <Link to={`/search/type/Effect%20Monster`}>
             <li>Monster Cards</li>
           </Link>
-          <Link to={`/type/type=Spell Card`}>
+          <Link to={`/search/type/Spell%20Card`}>
             <li>Spell Cards</li>
           </Link>
-          <Link to={`/type/type=Trap Card`}>
+          <Link to={`/search/type/Trap%20Card`}>
             <li>Trap Cards</li>
           </Link>
           <li>

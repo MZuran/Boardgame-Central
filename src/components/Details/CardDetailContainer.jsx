@@ -1,29 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import useFetch from '../../Hooks/useFetch'
 import CardDetail from './CardDetail'
 import { useParams } from 'react-router-dom'
+import { getFirestore, getDoc, doc } from 'firebase/firestore'
 
 const CardDetailContainer = () => {
-  const { cardName } = useParams()
+  const [data, setdata] = useState(null)
+  const { cardId } = useParams()
+  const db = getFirestore()
+  const itemref = doc(db, 'cards', cardId)
 
-  let data = useFetch(
-    `https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${encodeURIComponent(cardName)}`,
-    [cardName],
-  )
+  useState(() => {
+    getDoc(itemref)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setdata(snapshot.data())
+        }
+      })
+      .catch((err) => console.log(err))
+  }, [])
 
-  let cardData = null
-  if (data[0] !== null) {
-    console.log(data[0].data[0])
-    cardData = data[0].data[0]
-  }
-
-  useEffect(() => {
-    console.log(
-      `https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${encodeURIComponent(cardName)}`,
-      [cardName],
-    )
-  }, [cardName])
-
-  return <>{cardData !== null && <CardDetail cardData={cardData} />}</>
+  return <>{data !== null && <CardDetail cardId={cardId} cardData={data} />}</>
 }
 export default CardDetailContainer

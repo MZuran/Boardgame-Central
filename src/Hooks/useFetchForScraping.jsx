@@ -45,9 +45,3 @@ const useFetchForScraping = (url) => {
 }
 
 export default useFetchForScraping
-/* 
-const response = await fetch(link);
-      const html = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      const table = doc.querySelector('.wikitable'); */
