@@ -28,7 +28,7 @@ const AddToCartButton = ({ cardId, maxStock, cardPrice }) => {
     for (let i = 0; i < quantity; i++) {
       newItem.push(cardId)
     }
-    console.log("gonna add", newItem)
+    //console.log("gonna add", newItem)
     addToCart(newItem)
     setQuantity(0)
     addToPurchaseCost(quantity * cardPrice)

@@ -21,7 +21,7 @@ const CardItemContainer = ({ itemsArray, position }) => {
         }
       }
       setData(items)
-      console.log('items in carditemcontainer', items)
+      //console.log('items in carditemcontainer', items)
     }
   }, [itemsArray, position])
 

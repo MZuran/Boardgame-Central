@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import CardDetail from './CardDetail'
+import CardDetail from '../components/Details/CardDetail'
 import { useParams } from 'react-router-dom'
-import getItemFromCollection from '../../Hooks/firebase/getItemFromCollection'
+import getItemFromCollection from '../Hooks/firebase/getItemFromCollection'
 
 const CardDetailContainer = () => {
   const [data, setdata] = useState(null)
